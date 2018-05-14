@@ -214,18 +214,6 @@ services:
       networks:
         - backend
 
-# ### Memcached ############################################
-#     memcached:
-#       build: ./memcached
-#       volumes:
-#         - ${DATA_PATH_HOST}/memcached:/var/lib/memcached
-#       ports:
-#         - "${MEMCACHED_HOST_PORT}:11211"
-#       depends_on:
-#         - php-fpm
-#       networks:
-#         - backend
-
 # ### Caddy Server #########################################
 #     caddy:
 #       build: ./caddy
