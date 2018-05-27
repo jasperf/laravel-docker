@@ -44,7 +44,7 @@ LABEL maintainer="Mahmoud Zalt <mahmoud@zalt.me>"
 # SOAP:
 ###########################################################################
 
-ARG INSTALL_SOAP=false
+ARG INSTALL_SOAP=true
 
 RUN if [ ${INSTALL_SOAP} = true ]; then \
     # Install the soap extension

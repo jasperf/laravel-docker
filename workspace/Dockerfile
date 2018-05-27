@@ -151,7 +151,7 @@ RUN chmod -R 644 /etc/cron.d
 
 USER root
 
-ARG INSTALL_SOAP=false
+ARG INSTALL_SOAP=true
 ARG PHP_VERSION=${PHP_VERSION}
 
 RUN if [ ${INSTALL_SOAP} = true ]; then \
