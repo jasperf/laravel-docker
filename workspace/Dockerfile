@@ -156,7 +156,7 @@ ARG PHP_VERSION=${PHP_VERSION}
 
 RUN if [ ${INSTALL_SOAP} = true ]; then \
   # Install the PHP SOAP extension
-  rm /etc/apt/preferences.d/no-debian-php && \
+  apt-get update -yqq && \
   apt-get -y install libxml2-dev php${PHP_VERSION}-soap \
 ;fi
 
