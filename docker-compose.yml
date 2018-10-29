@@ -255,47 +255,47 @@ services:
         - backend
 
 ### Varnish ##########################################
-    proxy:
-      build: ./varnish
-      expose:
-        - ${VARNISH_PORT}
-      environment:
-        - VARNISH_CONFIG=${VARNISH_CONFIG}
-        - CACHE_SIZE=${VARNISH_PROXY1_CACHE_SIZE}
-        - VARNISHD_PARAMS=${VARNISHD_PARAMS}
-        - VARNISH_PORT=${VARNISH_PORT}
-        - BACKEND_HOST=${VARNISH_PROXY1_BACKEND_HOST}
-        - BACKEND_PORT=${VARNISH_BACKEND_PORT}
-        - VARNISH_SERVER=${VARNISH_PROXY1_SERVER}
-      links:
-        - workspace
-      networks:
-        - frontend
+#     proxy:
+#       build: ./varnish
+#       expose:
+#         - ${VARNISH_PORT}
+#       environment:
+#         - VARNISH_CONFIG=${VARNISH_CONFIG}
+#         - CACHE_SIZE=${VARNISH_PROXY1_CACHE_SIZE}
+#         - VARNISHD_PARAMS=${VARNISHD_PARAMS}
+#         - VARNISH_PORT=${VARNISH_PORT}
+#         - BACKEND_HOST=${VARNISH_PROXY1_BACKEND_HOST}
+#         - BACKEND_PORT=${VARNISH_BACKEND_PORT}
+#         - VARNISH_SERVER=${VARNISH_PROXY1_SERVER}
+#       links:
+#         - workspace
+#       networks:
+#         - frontend
 
-    proxy2:
-      build: ./varnish
-      expose:
-        - ${VARNISH_PORT}
-      environment:
-        - VARNISH_CONFIG=${VARNISH_CONFIG}
-        - CACHE_SIZE=${VARNISH_PROXY2_CACHE_SIZE}
-        - VARNISHD_PARAMS=${VARNISHD_PARAMS}
-        - VARNISH_PORT=${VARNISH_PORT}
-        - BACKEND_HOST=${VARNISH_PROXY2_BACKEND_HOST}
-        - BACKEND_PORT=${VARNISH_BACKEND_PORT}
-        - VARNISH_SERVER=${VARNISH_PROXY2_SERVER}
-      links:
-        - workspace
-      networks:
-        - frontend
+#     proxy2:
+#       build: ./varnish
+#       expose:
+#         - ${VARNISH_PORT}
+#       environment:
+#         - VARNISH_CONFIG=${VARNISH_CONFIG}
+#         - CACHE_SIZE=${VARNISH_PROXY2_CACHE_SIZE}
+#         - VARNISHD_PARAMS=${VARNISHD_PARAMS}
+#         - VARNISH_PORT=${VARNISH_PORT}
+#         - BACKEND_HOST=${VARNISH_PROXY2_BACKEND_HOST}
+#         - BACKEND_PORT=${VARNISH_BACKEND_PORT}
+#         - VARNISH_SERVER=${VARNISH_PROXY2_SERVER}
+#       links:
+#         - workspace
+#       networks:
+#         - frontend
 
-### HAProxy ####################################
-    haproxy:
-      build: ./haproxy
-      ports:
-        - "${HAPROXY_HOST_HTTP_PORT}:8085"
-      volumes:
-        - /var/run/docker.sock:/var/run/docker.sock
-      links:
-        - proxy
-        - proxy2
+# ### HAProxy ####################################
+#     haproxy:
+#       build: ./haproxy
+#       ports:
+#         - "${HAPROXY_HOST_HTTP_PORT}:8085"
+#       volumes:
+#         - /var/run/docker.sock:/var/run/docker.sock
+#       links:
+#         - proxy
+#         - proxy2
